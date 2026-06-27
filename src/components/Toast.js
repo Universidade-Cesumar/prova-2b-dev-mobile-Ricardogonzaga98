@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
-const CORES = {
+const CORES_TOAST = {
   sucesso: { bg: '#064E3B', borda: '#10B981', icone: '✅' },
   erro: { bg: '#7F1D1D', borda: '#EF4444', icone: '❌' },
   aviso: { bg: '#78350F', borda: '#F59E0B', icone: '⚠️' },
@@ -31,7 +31,7 @@ export function Toast({ visivel, tipo = 'sucesso', mensagem, onFechar }) {
 
   if (!visivel) return null;
 
-  const cor = CORES[tipo] || CORES.sucesso;
+  const cor = CORES_TOAST[tipo] || CORES_TOAST.sucesso;
 
   return (
     <Animated.View style={[styles.container, { backgroundColor: cor.bg, borderColor: cor.borda, transform: [{ translateY }], opacity }]}>
