@@ -75,7 +75,7 @@ export function HomeScreen() {
           </View>
           <View>
             <Text style={styles.headerTitulo}>Almoxarifado</Text>
-            <Text style={styles.headerSubtitulo}>Sistema de Controle de Estoque</Text>
+            <Text style={styles.headerSubtitulo}>Controle de Estoque</Text>
           </View>
         </View>
 
