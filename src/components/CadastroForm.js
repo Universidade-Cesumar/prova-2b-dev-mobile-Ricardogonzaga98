@@ -22,14 +22,15 @@ export function CadastroForm({ onCadastroSucesso, onToast }) {
       onToast && onToast('erro', 'Informe o nome do material.');
       return;
     }
-    if (!quantidade || isNaN(Number(quantidade)) || Number(quantidade) < 0) {
+    const qtdNumerica = Number(quantidade);
+    if (!quantidade || isNaN(qtdNumerica) || qtdNumerica < 0) {
       onToast && onToast('erro', 'Informe uma quantidade válida.');
       return;
     }
 
     setSalvando(true);
     try {
-      await postMaterial({ nome: nome.trim(), quantidade: Number(quantidade) });
+      await postMaterial({ nome: nome.trim(), quantidade: qtdNumerica });
       limparFormulario();
       onCadastroSucesso();
       onToast && onToast('sucesso', `"${nome.trim()}" cadastrado com sucesso!`);
