@@ -27,7 +27,6 @@ export function HomeScreen() {
   } = useMateriais();
 
   const [busca, setBusca] = useState('');
-  const [ordenacao, setOrdenacao] = useState('nome');
   const [toast, setToast] = useState({ visivel: false, tipo: 'sucesso', mensagem: '' });
 
   const mostrarToast = useCallback((tipo, mensagem) => {
@@ -39,16 +38,10 @@ export function HomeScreen() {
   }, []);
 
   const materiaisFiltrados = useMemo(() => {
-    let lista = materiais;
-    if (busca.trim()) {
-      const termo = busca.toLowerCase().trim();
-      lista = lista.filter((m) => m.nome.toLowerCase().includes(termo));
-    }
-    return [...lista].sort((a, b) => {
-      if (ordenacao === 'quantidade') return a.quantidade - b.quantidade;
-      return a.nome.localeCompare(b.nome);
-    });
-  }, [materiais, busca, ordenacao]);
+    if (!busca.trim()) return materiais;
+    const termo = busca.toLowerCase().trim();
+    return materiais.filter((m) => m.nome.toLowerCase().includes(termo));
+  }, [materiais, busca]);
 
   const handleEditar = useCallback(async (id, dados) => {
     await editarMaterial(id, dados);
