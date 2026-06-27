@@ -5,7 +5,7 @@ import { LIMITE_ESTOQUE_CRITICO } from '../constants';
 export function DashboardStats({ materiais }) {
   const total = materiais.length;
   const criticos = materiais.filter((m) => Number(m.quantidade) < LIMITE_ESTOQUE_CRITICO).length;
-  const totalUnidades = materiais.reduce((acc, m) => acc + Number(m.quantidade), 0);
+  const totalUnidades = materiais.reduce((soma, m) => soma + Number(m.quantidade), 0);
 
   return (
     <View style={styles.container}>
