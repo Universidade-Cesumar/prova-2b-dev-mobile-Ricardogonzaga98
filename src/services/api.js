@@ -55,12 +55,7 @@ export async function putMaterial(id, dados) {
 }
 
 export async function deleteMaterial(id) {
-  const response = await fetchSeguro(`${API_BASE_URL}${ENDPOINT_MATERIAIS}/${id}`, {
+  await fetchSeguro(`${API_BASE_URL}${ENDPOINT_MATERIAIS}/${id}`, {
     method: 'DELETE',
   });
-  try {
-    await response.json();
-  } catch (_) {
-    // MockAPI pode retornar sem corpo em DELETE.
-  }
 }
