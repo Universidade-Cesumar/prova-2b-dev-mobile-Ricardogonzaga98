@@ -18,12 +18,13 @@ export function Toast({ visivel, tipo = 'sucesso', mensagem, onFechar }) {
         Animated.timing(opacity, { toValue: 1, duration: 200, useNativeDriver: true }),
       ]).start();
 
+      const DURACAO_TOAST = 3000;
       const timer = setTimeout(() => {
         Animated.parallel([
           Animated.timing(translateY, { toValue: -100, duration: 300, useNativeDriver: true }),
           Animated.timing(opacity, { toValue: 0, duration: 300, useNativeDriver: true }),
         ]).start(() => onFechar && onFechar());
-      }, 3000);
+      }, DURACAO_TOAST);
 
       return () => clearTimeout(timer);
     }
