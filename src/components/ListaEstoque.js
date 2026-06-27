@@ -72,6 +72,7 @@ export function ListaEstoque({ materiais, loading, erro, onRecarregar, onEditar,
           </Text>
         </View>
       }
+      showsVerticalScrollIndicator={false}
       ListHeaderComponent={null}
     />
   );
