@@ -35,7 +35,8 @@ export function MaterialCard({ item, onEditar, onExcluir, index }) {
     setQuantidade(String(item.quantidade));
   }, [item.nome, item.quantidade]);
 
-  const estoqueCritico = Number(item.quantidade) < LIMITE_ESTOQUE_CRITICO;
+  const quantidadeAtual = Number(item.quantidade);
+  const estoqueCritico = quantidadeAtual < LIMITE_ESTOQUE_CRITICO;
 
   const alerta = (msg) => {
     Platform.OS === 'web' ? window.alert(msg) : Alert.alert('Atenção', msg);
