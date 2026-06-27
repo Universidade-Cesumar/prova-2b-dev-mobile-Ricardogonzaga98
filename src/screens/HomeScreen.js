@@ -44,21 +44,13 @@ export function HomeScreen() {
   }, [materiais, busca]);
 
   const handleEditar = useCallback(async (id, dados) => {
-    try {
-      await editarMaterial(id, dados);
-      mostrarToast('sucesso', 'Material atualizado com sucesso!');
-    } catch (e) {
-      mostrarToast('erro', 'Erro ao atualizar material.');
-    }
+    await editarMaterial(id, dados);
+    mostrarToast('sucesso', 'Material atualizado com sucesso!');
   }, [editarMaterial, mostrarToast]);
 
   const handleExcluir = useCallback(async (id) => {
-    try {
-      await deletarMaterial(id);
-      mostrarToast('sucesso', 'Material excluído do estoque.');
-    } catch (e) {
-      mostrarToast('erro', 'Erro ao excluir material.');
-    }
+    await deletarMaterial(id);
+    mostrarToast('sucesso', 'Material excluído do estoque.');
   }, [deletarMaterial, mostrarToast]);
 
   return (
