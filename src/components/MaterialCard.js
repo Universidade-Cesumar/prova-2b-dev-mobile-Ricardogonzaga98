@@ -55,11 +55,11 @@ export function MaterialCard({ item, onEditar, onExcluir, index }) {
 
   const handleRetirada = () => {
     const qtd = Number(quantidadeRetirada);
-    if (!validarRetirada(Number(item.quantidade), qtd)) {
+    if (!validarRetirada(quantidadeAtual, qtd)) {
       alerta('Quantidade de retirada inválida.');
       return;
     }
-    onEditar(item.id, { quantidade: Number(item.quantidade) - qtd });
+    onEditar(item.id, { quantidade: quantidadeAtual - qtd });
     setQuantidadeRetirada('');
     setRetiradaMode(false);
   };
