@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     borderColor: '#7F1D1D',
     maxWidth: 320,
   },
-  erroIcone: { fontSize: 40, marginBottom: 12 },
+  erroIcone: { fontSize: 48, marginBottom: 16 },
   erroTitulo: { color: '#FCA5A5', fontSize: 18, fontWeight: '700', marginBottom: 8 },
   erroMsg: { color: '#94A3B8', fontSize: 13, textAlign: 'center', marginBottom: 20, lineHeight: 20 },
   btnRecarregar: {
