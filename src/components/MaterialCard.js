@@ -23,7 +23,7 @@ export function MaterialCard({ item, onEditar, onExcluir, index }) {
   const slideAnim = useRef(new Animated.Value(30)).current;
 
   useEffect(() => {
-    const delay = Math.min((index || 0) * 50, 500);
+    const delay = Math.min((index || 0) * 80, 600);
     Animated.parallel([
       Animated.timing(fadeAnim, { toValue: 1, duration: 400, delay, useNativeDriver: true }),
       Animated.timing(slideAnim, { toValue: 0, duration: 400, delay, useNativeDriver: true }),
