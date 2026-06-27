@@ -1,11 +1,18 @@
 import { API_BASE_URL, ENDPOINT_MATERIAIS } from '../constants';
 
 async function fetchSeguro(url, opcoes) {
-  const response = await fetch(url, opcoes);
-  if (!response.ok) {
-    throw new Error(`Erro do servidor: ${response.status}`);
+  try {
+    const response = await fetch(url, opcoes);
+    if (!response.ok) {
+      throw new Error(`Erro do servidor: ${response.status}`);
+    }
+    return response;
+  } catch (erro) {
+    if (erro.message.includes('Network request failed') || erro.message.includes('Failed to fetch')) {
+      throw new Error('Sem conexão com a internet. Verifique sua rede e tente novamente.');
+    }
+    throw erro;
   }
-  return response;
 }
 
 function mapearMaterial(item) {
