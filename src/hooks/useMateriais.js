@@ -1,10 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getMateriais, putMaterial, deleteMaterial } from '../services/api';
 
-/**
- * Hook personalizado para buscar e gerenciar a lista de materiais do estoque.
- * Encapsula a chamada GET à MockAPI e os estados de loading/erro.
- */
 export function useMateriais() {
   const [materiais, setMateriais] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,7 +39,6 @@ export function useMateriais() {
     }
   }, []);
 
-  // Carrega os materiais automaticamente ao montar o componente
   useEffect(() => {
     buscarMateriais();
   }, [buscarMateriais]);
